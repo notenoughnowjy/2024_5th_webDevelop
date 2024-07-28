@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 앱 개발자 박준영 - 인적사항</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .nav {
+            background-color: #333;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        .nav a:hover, .nav a.active {
+            background-color: #555;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .profile-details {
+            flex: 1;
+        }
+        .skill {
+            font-weight: 600;
+            font-size: 17px;
+        }
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav a {
+                margin-bottom: 10px;
+            }
+            .profile {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="active">인적사항</a>
+            <a href="projects.html">프로젝트</a>
+            <a href="todo.html">TODO 리스트</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h1>인적사항</h1>
+            <div class="profile">
+                <img src="/assets/image/myImage.jpg" alt="프로필 사진" class="profile-img">
+                <div class="profile-details">
+                    <h2>박준영</h2>
+                    <p>이메일: jyp4188@gmail.com</p>
+                    <p>전화번호: 010-4188-5916</p>
+                </div>
+            </div>
+            <h3>소개</h3>
+            <p>안녕하세요. 저는 모바일 앱 개발자 박준영입니다. 모바일 앱 개발을 통해 끊임없이 성장하고, 열정적으로 새로운 기술을 습득하여 어제보다 더 나은 제가 되도록 노력하고 있습니다. 기초를 탄탄하게, 스스로 발전하며 누구랑 비교하지 않고 꾸준히 나아가는 것이 가장 중요하다고 생각합니다.</p>
+            <h3>기술 스택</h3>
+            <ol>
+                <li class="skill">Hard Skill</li>
+                <ul>
+                    <li>Java</li>
+                    <li>Dart</li>
+                    <li>Flutter</li>
+                    <li>Js</li>
+                    <li>React-Native</li>
+                </ul>
+
+                <li class="skill">Soft Skill</li>
+                <ul>
+                    <li>Spring boot</li>
+                    <li>MySQL</li>
+                    <li>Node-js</li>
+                </ul>
+
+                <li class="skill">Hard Skill</li>
+                <ul>
+                    <li>Visual Studio Code</li>
+                    <li>Intellij</li>
+                    <li>Android Studio</li>
+                </ul>
+            </ol>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

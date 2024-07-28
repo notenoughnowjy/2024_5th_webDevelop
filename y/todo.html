@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 앱 개발자 박준영 - TODO 리스트</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .nav {
+            background-color: #333;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        .nav a:hover, .nav a.active {
+            background-color: #555;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .todo-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .todo-item {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .todo-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav a {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html">인적사항</a>
+            <a href="projects.html">프로젝트</a>
+            <a href="todo.html" class="active">TODO 리스트</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h1>TODO 리스트</h1>
+            <ul class="todo-list">
+                <li class="todo-item">
+                    <input type="checkbox" id="todo5">
+                    <label for="todo5">기술 블로그 정기적으로 작성하기</label>
+                </li>
+            </ul>
+            <ul class="todo-list">
+              <li class="todo-item">
+                  <input type="checkbox" id="todo5">
+                  <label for="todo5">네이티브 애플리케이션 기술 공부하기</label>
+              </li>
+            </ul>
+            <ul class="todo-list">
+              <li class="todo-item">
+                  <input type="checkbox" id="todo5">
+                  <label for="todo5">백엔드 기술 공부하기 - 구체적 계획 필요</label>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                if(link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // TODO 항목 체크 기능
+            const todoItems = document.querySelectorAll('.todo-item');
+            todoItems.forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                checkbox.addEventListener('change', function() {
+                    item.classList.toggle('completed');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+</antA
